@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Welcome</title>
+    <title>Login</title>
     <style>
         * {
             margin: 0;
@@ -21,38 +21,27 @@
             padding: 20px;
         }
 
-        .container {
+        .login-container {
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            max-width: 900px;
+            padding: 40px;
+            max-width: 400px;
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
         }
 
-        .login-section {
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .brand {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .brand h1 {
+        .login-container h1 {
             color: #667eea;
             font-size: 28px;
             margin-bottom: 10px;
+            text-align: center;
         }
 
-        .brand p {
+        .login-container p {
             color: #777;
             font-size: 14px;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .form-group {
@@ -84,31 +73,10 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .remember-forgot {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        .checkbox {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #666;
-        }
-
-        input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-
         .button-group {
             display: flex;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-top: 30px;
         }
 
         .login-btn,
@@ -151,72 +119,32 @@
         .cancel-btn:active {
             transform: translateY(0);
         }
-
-        .promo-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-
-            .promo-section {
-                display: none;
-            }
-
-            .login-section {
-                padding: 40px 25px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="login-section">
-            <div class="brand">
-                <h1>Login To Access Your Page</h1>
-                <p>Sign in to your account</p>
+    <div class="login-container">
+        <h1>Login</h1>
+        <p>Sign in to your account</p>
+
+        <form>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
             </div>
 
-            <form>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" required>
-                </div>
-
-                <div class="remember-forgot">
-                    <label class="checkbox">
-                        <input type="checkbox" name="remember">
-                        Remember me
-                    </label>
-                </div>
-
-                <div class="button-group">
-                    <button type="submit" class="login-btn">Login</button>
-                    <button type="reset" class="cancel-btn">Cancel</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="promo-section">
-        </div>
+            <div class="button-group">
+                <button type="submit" class="login-btn">Login</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
     </div>
 
     <script>
-        // Handle form submission
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
